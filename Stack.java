@@ -11,6 +11,10 @@ public class Stack {
         return top == items.length -1;
     }
 
+    /**
+     * Insert Item into the stack
+     */
+
     public void push(int item) {
         if (isFull()){
             System.out.println("Stack is full or Overflow");
