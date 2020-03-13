@@ -6,7 +6,7 @@ public class Queue
     private int head;
     private int tail;
     private int capacity;
-    private int count;
+    private int count; // current size of queue
 
     //Constructor to initialize queue with size parameter
     Queue(int size)
@@ -18,16 +18,19 @@ public class Queue
         count = 0;
     }
 
+    //return current size of the queue
     private int size()
     {
         return count;
     }
 
+    //check if queue is empty
     private Boolean isEmpty()
     {
         return (size() == 0);
     }
 
+    //check if queue is full
     private Boolean isFull()
     {
         return (size() == capacity);
@@ -40,7 +43,7 @@ public class Queue
             System.out.println("The queue is Full, no item is inserted");
             System.exit(1);
         }
-        tail = (tail + 1);
+        tail = (tail + 1) % capacity;
         array[tail] = item;
         count++;
     }
@@ -70,7 +73,7 @@ public class Queue
 
     public static void main (String[] args)
     {
-        Queue queue = new Queue(6);
+        academy.training.Queue queue = new academy.training.Queue(6);
         System.out.println("Is queue empty? " + queue.isEmpty());
         queue.enqueue(3);
         queue.enqueue(8);
