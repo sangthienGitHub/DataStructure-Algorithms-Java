@@ -1,19 +1,23 @@
 
 public class Stack {
-    private int[] items = new int[100];
-    private int top = -1; //index to keep track of the topmost element
+    private int array[];
+    private int top;
+    private int capacity;
+
+    //Constructor to initialize stack
+    Stack(int size){
+        array = new int[size];
+        capacity = size;
+        top = -1;
+    }
 
     public boolean isEmpty() {
         return top < 0;
     }
 
     public boolean isFull() {
-        return top == items.length -1;
+        return top == capacity -1;
     }
-
-    /**
-     * Insert Item into the stack
-     */
 
     public void push(int item) {
         if (isFull()){
@@ -21,7 +25,7 @@ public class Stack {
             System.exit(1);
         }
         System.out.println("Inserting " + item);
-        items[++top] = item;
+        array[++top] = item;
     }
 
     /**
@@ -34,13 +38,11 @@ public class Stack {
             System.exit(1);
         }
         System.out.println("Removing " + peek());
-        return items[top--];
+        return array[top--];
     }
 
     /**
      * Returns the topmost item without removing it
-     * Peek and Pop methods should ideally be invoked after checking that the stack is not empty
-     * either in a 'if' condition or a 'while' loop
      * @return
      */
     public int peek() {
@@ -48,11 +50,11 @@ public class Stack {
             System.out.println("Stack is empty or Underflow");
             System.exit(1);
         }
-        return items[top];
+        return array[top];
     }
 
     public static void main(String[] args) {
-        Stack stack = new Stack();
+        academy.training.Stack stack = new academy.training.Stack(7);
         System.out.println("Is stack empty? " + stack.isEmpty());
         stack.push(1);
         stack.push(2);
@@ -65,5 +67,6 @@ public class Stack {
         stack.pop();
         stack.pop();
         stack.pop();
+        System.out.println("Is stack empty? " + stack.isEmpty());
     }
 }
