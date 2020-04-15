@@ -1,11 +1,14 @@
+package Stack;
 
-public class Stack {
+import java.util.Stack;
+
+public class StackArray {
     private int array[];
     private int top;
     private int capacity;
 
     //Constructor to initialize stack
-    Stack(int size){
+    StackArray(int size){
         array = new int[size];
         capacity = size;
         top = -1;
@@ -54,7 +57,7 @@ public class Stack {
     }
 
     public static void main(String[] args) {
-        academy.training.Stack stack = new academy.training.Stack(7);
+        StackArray stack = new StackArray(7);
         System.out.println("Is stack empty? " + stack.isEmpty());
         stack.push(1);
         stack.push(2);

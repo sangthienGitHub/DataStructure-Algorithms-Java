@@ -1,6 +1,6 @@
+package Queue;
 
-//implement Queue using Array in Java language
-public class Queue
+public class QueueArray
 {
     private int array[];
     private int head;
@@ -9,7 +9,7 @@ public class Queue
     private int count; // current size of queue
 
     //Constructor to initialize queue with size parameter
-    Queue(int size)
+    QueueArray(int size)
     {
         array = new int[size];
         capacity = size;
@@ -73,7 +73,7 @@ public class Queue
 
     public static void main (String[] args)
     {
-        academy.training.Queue queue = new academy.training.Queue(6);
+        QueueArray queue = new QueueArray(6);
         System.out.println("Is queue empty? " + queue.isEmpty());
         queue.enqueue(3);
         queue.enqueue(8);
